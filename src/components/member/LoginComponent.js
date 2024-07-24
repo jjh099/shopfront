@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import loginSlice, { login } from "../../slice/loginSlice";
+import loginSlice, { login, loginPostAsync } from "../../slice/loginSlice";
+import { useNavigate } from "react-router-dom";
 
 const initState = {
   email: "",
@@ -15,6 +16,8 @@ function LoginComponent() {
 
   const dispatch = useDispatch();
 
+  const navigate = useNavigate();
+
   const handleChange = (e) => {
     // e.target.name = input name
     loginParam[e.target.name] = e.target.value;
@@ -24,10 +27,24 @@ function LoginComponent() {
 
   const handleClickLogin = (e) => {
     e.preventDefault();
+    // dispatch(login(loginParam));
+
     // 두가지로 사용 가능
     // dispatch(loginSlice.actions.login());
-    dispatch(login(loginParam));
-    // loginparam -> slice로 보냄
+    // dispatch(login(loginParam)); // loginparam -> slice로 보냄
+
+    dispatch(loginPostAsync(loginParam))
+      .unwrap()
+      .then((data) => {
+        console.log(data);
+
+        if (data.error) {
+          alert("이메일과 패스워드 불일치");
+        } else {
+          alert("로그인성공");
+          navigate({ pathname: "/" }, { replace: true });
+        }
+      });
   };
 
   return (
@@ -50,7 +67,7 @@ function LoginComponent() {
                 type="text"
                 id="email"
                 name="email"
-                className="bg-white rounded w-full text-gray-700 focus:outline-none border-2 border-gray-100 focus:border-pink-300 hover:border-pink-200 hover:shadow-lg transition duration-500 px-3 pb-3"
+                className="bg-white rounded w-full text-gray-700 focus:outline-none border-2 border-gray-100 focus:border-pink-200 focus:shadow-custom  hover:shadow-custom transition duration-500 px-3 py-2"
                 value={loginParam.email}
                 onChange={handleChange}
               />
@@ -66,8 +83,7 @@ function LoginComponent() {
                 type="password"
                 id="password"
                 name="pw"
-                // className="bg-white rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-blue-300 transition duration-500 px-3 pb-3"
-                className="bg-white rounded w-full text-gray-700 focus:outline-none border-2 border-gray-100 focus:border-pink-300 hover:border-pink-200 hover:boxShadow transition duration-500 px-3 pb-3"
+                className="bg-white rounded w-full text-gray-700 focus:outline-none border-2 border-gray-100 focus:border-pink-200 focus:shadow-custom hover:shadow-custom transition duration-500 px-3 py-2"
                 value={loginParam.pw}
                 onChange={handleChange}
               />
@@ -82,7 +98,7 @@ function LoginComponent() {
               </a>
             </div>
             <button
-              className="bg-gray-800 text-white font-bold py-2 rounded shadow-lg hover:shadow-xl transition duration-200"
+              className="bg-gray-800 text-white font-bold py-2 rounded shadow-lg hover:bg-gray-700 hover:shadow-xl transition duration-200"
               onClick={handleClickLogin}
             >
               Sign In

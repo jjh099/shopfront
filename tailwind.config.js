@@ -27,7 +27,13 @@ module.exports = {
       },
       boxShadow: {
         custom: "0 0 0 4px rgba(234, 100, 217, 0.1)",
+        customLg: "0 0 0 4px rgba(234, 100, 217, 0.2)",
       },
+    },
+  },
+  variants: {
+    extend: {
+      boxShadow: ["hover", "focus"],
     },
   },
   plugins: [],
