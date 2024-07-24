@@ -1,5 +1,6 @@
 import React from "react";
 import BasicMenu from "../../../components/menus/BasicMenu";
+import LogoutComponent from "../../../components/member/LogoutComponent";
 
 function LogoutPage() {
   return (
@@ -7,7 +8,7 @@ function LogoutPage() {
       <div className="container mx-auto">
         <BasicMenu />
       </div>
-      logout
+      <LogoutComponent />
     </div>
   );
 }

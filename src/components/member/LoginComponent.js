@@ -50,7 +50,7 @@ function LoginComponent() {
                 type="text"
                 id="email"
                 name="email"
-                className="bg-white rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-blue-300 transition duration-500 px-3 pb-3"
+                className="bg-white rounded w-full text-gray-700 focus:outline-none border-2 border-gray-100 focus:border-pink-300 hover:border-pink-200 hover:shadow-lg transition duration-500 px-3 pb-3"
                 value={loginParam.email}
                 onChange={handleChange}
               />
@@ -66,7 +66,8 @@ function LoginComponent() {
                 type="password"
                 id="password"
                 name="pw"
-                className="bg-white rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-blue-300 transition duration-500 px-3 pb-3"
+                // className="bg-white rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-blue-300 transition duration-500 px-3 pb-3"
+                className="bg-white rounded w-full text-gray-700 focus:outline-none border-2 border-gray-100 focus:border-pink-300 hover:border-pink-200 hover:boxShadow transition duration-500 px-3 pb-3"
                 value={loginParam.pw}
                 onChange={handleChange}
               />
@@ -75,13 +76,13 @@ function LoginComponent() {
               {/* a 태그는 페이지 새로고침 되서 입력중이던 상태가 날아감 a 대신 link 사용 */}
               <a
                 href="#"
-                className="text-sm text-blue-400 hover:text-blue-700 hover:underline mb-6"
+                className="text-sm text-gray-400 hover:text-gray-800 hover:underline mb-6"
               >
                 Forgot your password?
               </a>
             </div>
             <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded shadow-lg hover:shadow-xl transition duration-200"
+              className="bg-gray-800 text-white font-bold py-2 rounded shadow-lg hover:shadow-xl transition duration-200"
               onClick={handleClickLogin}
             >
               Sign In

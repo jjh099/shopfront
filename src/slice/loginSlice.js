@@ -16,6 +16,7 @@ const loginSlice = createSlice({
     },
     logout: (state, actions) => {
       console.log("logout@@");
+      return { ...initState };
     },
   },
 });
