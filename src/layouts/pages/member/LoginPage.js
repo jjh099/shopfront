@@ -1,5 +1,6 @@
 import React from "react";
 import BasicMenu from "../../../components/menus/BasicMenu";
+import LoginComponent from "../../../components/member/LoginComponent";
 
 function LoginPage() {
   return (
@@ -7,7 +8,7 @@ function LoginPage() {
       <div className="container mx-auto">
         <BasicMenu />
       </div>
-      LoginPage
+      <LoginComponent />
     </div>
   );
 }
