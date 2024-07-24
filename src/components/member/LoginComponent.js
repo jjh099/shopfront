@@ -27,7 +27,7 @@ function LoginComponent() {
     // 두가지로 사용 가능
     // dispatch(loginSlice.actions.login());
     dispatch(login(loginParam));
-    //loginparam -> slice로 보냄
+    // loginparam -> slice로 보냄
   };
 
   return (
@@ -72,6 +72,7 @@ function LoginComponent() {
               />
             </div>
             <div className="flex justify-end">
+              {/* a 태그는 페이지 새로고침 되서 입력중이던 상태가 날아감 a 대신 link 사용 */}
               <a
                 href="#"
                 className="text-sm text-blue-400 hover:text-blue-700 hover:underline mb-6"

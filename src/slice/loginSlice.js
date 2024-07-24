@@ -11,6 +11,7 @@ const loginSlice = createSlice({
     login: (state, action) => {
       console.log("login!!");
       console.log(action.payload);
+      // loginComponent에서 입력받은 값을 initState:email에 넣어줌
       return { email: action.payload.email };
     },
     logout: (state, actions) => {
