@@ -1,7 +1,8 @@
 import React from "react";
+import ListComponent from "../../../components/products/ListComponent";
 
 function ListPage() {
-  return <div>ListPage</div>;
+  return <ListComponent />;
 }
 
 export default ListPage;
